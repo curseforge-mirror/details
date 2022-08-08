@@ -1,3 +1,2 @@
-js2py
 cloudscraper
 beautifulsoup4
