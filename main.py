@@ -23,7 +23,8 @@ log = logging.getLogger()
 class CFScraper:
     def __init__(self, addon_name):
         self.scraper = cloudscraper.create_scraper(
-            browser={"browser": "firefox", "platform": "windows", "mobile": False}
+            browser={"browser": "firefox", "platform": "windows", "mobile": False},
+            interpreter='js2py'
         )
 
         if addon_name == cf_mirror_addon_name:
@@ -57,6 +58,13 @@ class CFScraper:
 
     def get_download_mapping(self):
         response = self.scraper.get(self.curseforge_info_url)
+
+        if response.status_code != 200:
+            raise Exception(
+                f"ERROR: {self.addon_name} failed at download on url"
+                f" {self.curseforge_info_url} -- error code {response.status_code}"
+            )
+
         soup = Soup(response.content, features="html.parser")
 
         download_element_selector = "div[class='cf-sidebar-inner'] > *"

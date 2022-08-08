@@ -21,7 +21,7 @@ jobs:
     - name: Run Main Script
       run: python main.py
       env:
-        ADDON_NAME: ${{ secrets.ADDON_NAME }} 
+        ADDON_NAME: details
 
     - name: Get current time
       uses: srfrnk/current-time@master
