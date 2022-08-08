@@ -42,8 +42,10 @@ class CFScraper:
             "WoW Burning Crusade Classic": "-bc",
             "WoW Wrath of the Lich King Classic": "-wrath",
         }
-    
+
     def special_mapping_handling(self, mapping):
+        if mapping.get("WoW Retail"):
+            mapping["WoW Retail"]["file_name"] = f"Details-{mapping['WoW Retail']['file_name']}"
         return mapping
 
     def get_download_mapping(self):

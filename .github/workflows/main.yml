@@ -1,8 +1,7 @@
 on:
   workflow_dispatch:
-  # Disable to start running
-  # schedule:
-  #   - cron: '0 */3 * * *' # runs every 3 hours
+  schedule:
+    - cron: '0 */3 * * *' # runs every 3 hours
 
 jobs:
   pull_and_upload_files:
