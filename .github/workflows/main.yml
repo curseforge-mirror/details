@@ -39,6 +39,7 @@ jobs:
         tag: v${{ steps.current-time.outputs.formattedTime }}
         name: v${{ steps.current-time.outputs.formattedTime }}
         draft: false
+        bodyFile: README.md
         prerelease: false
         artifacts: "*.zip"
         artifactContentType: application/zip
